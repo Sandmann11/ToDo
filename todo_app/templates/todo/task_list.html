@@ -1,0 +1,10 @@
+{% extends 'todo/main.html' %}
+{% block content%}
+
+    {% for task in object_list%}
+
+        <a href="{% url 'task_details' task.pk %}">Click me</a>
+
+    {% endfor %}
+
+{% endblock content%}
