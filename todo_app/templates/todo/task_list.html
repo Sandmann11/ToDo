@@ -1,10 +1,12 @@
 {% extends 'todo/main.html' %}
-{% block content%}
+{% block content %}
 
-    {% for task in object_list%}
+    <div class="container-fluid">
+        {% for task in object_list%}
 
-        <a href="{% url 'task_details' task.pk %}">Click me</a>
+            <a href="{% url 'task_details' task.pk %}">{{ task.name }}</a>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {% endblock content%}

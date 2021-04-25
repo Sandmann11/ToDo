@@ -2,6 +2,14 @@
 
 {% block content%}
 
-    <h5>{{ task.details }}</h5>
+    <div class="container-fluid">
+
+        <h3>{{ task.name }}</h3>
+        <h4>{{ task.category }} | {{ task.priority}}</h4>
+        <h5>{{ task.date_created }} | {{ task.date_due }}</h5>
+        <hr>
+        <p>{{ task.details|linebreaks }}</p>
+
+    </div>
 
 {% endblock content%}
