@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo_main',
+    'todo_app',
 ]
 
 MIDDLEWARE = [
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ToDoApp.urls'
+ROOT_URLCONF = 'todo_main.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ToDoApp.wsgi.application'
+WSGI_APPLICATION = 'todo_main.wsgi.application'
 
 
 # Database
@@ -66,9 +66,9 @@ WSGI_APPLICATION = 'ToDoApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TO_DO',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'ZSE$xdr5cft6',
+        'PASSWORD': 'User1',
         'HOST': 'localhost',
         'PORT': '5432'
     }
