@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Task(models.Model):
     PRIORITY = (
         ('Lowest', 'Lowest'),
@@ -24,3 +23,4 @@ class Task(models.Model):
     def get_absolute_url(self):
         # return reverse('task_details', kwargs={'pk': self.pk})
         return reverse('task_list')
+        

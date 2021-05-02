@@ -2,14 +2,13 @@
 
 {% block content%}
 
-    <div class="container-fluid">
-
+    <div class="container mx-auto mt-5">
         <h3>{{ task.name }}</h3>
         <h4>{{ task.category }} | {{ task.priority}}</h4>
         <h5>{{ task.date_created }} | {{ task.date_due }}</h5>
         <hr>
         <p>{{ task.details|linebreaks }}</p>
-
     </div>
+
 
 {% endblock content%}
