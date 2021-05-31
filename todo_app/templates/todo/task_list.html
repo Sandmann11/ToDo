@@ -5,24 +5,35 @@
     <div class="container">
         <div class="row">
             <div class="col mt-5">
-
                 <ol class="list-group list-group-numbered">
 
-                    {% for task in object_list %}       
+                    {% for task in object_list %}
 
-                        <li class="list-group-item d-flex align-items-start mb-3">
+                        <div class="card text-start mt-2 mb-4">
+                            <div class="card-header">{{ task.category }} <span class="float-end">{{ task.date_due }}</span></div>
 
+                            <div class="card-body">
+                                <h4 class="card-title">{{ task.name }}</h4>
+                                <p class="card-text">{{ task.description }}</p>
+                                <a href="{% url 'task_details' task.pk %}" class="btn btn-primary float-end">See details</a>
+                            </div>
+                            
+                            <div class="card-footer text-muted">{{ task.priority }} Priority</div>
+                        </div>                           
+
+                        {% comment %} <li class="list-group-item d-flex align-items-start mb-3">
                             <div class="ms-2 me-auto">
-                                <div class="fw-bold"><a href="{% url 'task_details' task.pk %}">{{ task.name }}</a> <span class="badge bg-primary float-end rounded-pill">{{ task.date_due }}</span></div>
+                                <div class="fw-bold">
+                                    <a href="{% url 'task_details' task.pk %}">{{ task.name }}</a>
+                                    <span class="badge bg-primary float-end rounded-pill">{{ task.date_due }}</span>
+                                </div>
                                 <p>{{ task.description|linebreaks }}</p>
                             </div>
-
-                        </li>    
+                        </li>     {% endcomment %}
 
                     {% endfor %}
 
                 </ol>
-
             </div>
         </div>
     </div>            
