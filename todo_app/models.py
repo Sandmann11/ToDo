@@ -10,7 +10,7 @@ class Task(models.Model):
         ('Highest', 'Highest'),
     )
     name = models.CharField(max_length=255)
-    description = models.TextField(max_length=500, null=True, blank=True)
+    description = models.TextField(max_length=75, null=True, blank=True)
     details = models.TextField(max_length=2500, null=True, blank=True)
     category = models.CharField(max_length=255)
     priority = models.CharField(max_length=255, null=True, choices=PRIORITY)
@@ -23,4 +23,3 @@ class Task(models.Model):
     def get_absolute_url(self):
         # return reverse('task_details', kwargs={'pk': self.pk})
         return reverse('task_list')
-        

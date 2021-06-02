@@ -3,39 +3,57 @@
 {% block content %}
 
     <div class="container">
-        <div class="row">
-            <div class="col mt-5">
-                <ol class="list-group list-group-numbered">
+        <div class="container mt-5 mx-auto">
 
-                    {% for task in object_list %}
+            <table class="table table-hover">
 
-                        <div class="card text-start mt-2 mb-4">
-                            <div class="card-header">{{ task.category }} <span class="float-end">{{ task.date_due }}</span></div>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Due</th>                        
+                    </tr>
+                </thead>
 
-                            <div class="card-body">
-                                <h4 class="card-title">{{ task.name }}</h4>
-                                <p class="card-text">{{ task.description }}</p>
-                                <a href="{% url 'task_details' task.pk %}" class="btn btn-primary float-end">See details</a>
-                            </div>
-                            
-                            <div class="card-footer text-muted">{{ task.priority }} Priority</div>
-                        </div>                           
+                {% for task in object_list %}
 
-                        {% comment %} <li class="list-group-item d-flex align-items-start mb-3">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">
-                                    <a href="{% url 'task_details' task.pk %}">{{ task.name }}</a>
-                                    <span class="badge bg-primary float-end rounded-pill">{{ task.date_due }}</span>
-                                </div>
-                                <p>{{ task.description|linebreaks }}</p>
-                            </div>
-                        </li>     {% endcomment %}
+                    <tbody>                    
+                        <tr>
+                            <td><a href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>
+                            <td>{{ task.category }}</td>
+                            <td>{{ task.priority }}</td>
+                            <td>{{ task.date_due }}</td>
+                        </tr>
+                    </tbody>
 
-                    {% endfor %}
+                {% endfor %}
 
-                </ol>
-            </div>
+            </table>
         </div>
+
+        <!-- <div class="row">            
+            <div class="col mt-5">
+
+                {% for task in object_list %}
+
+                    <div class="card w-75 mt-2 mb-4 mx-auto">
+                        <div class="card-header">{{ task.category }} <span class="float-end">{{ task.date_due }}</span></div>
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">{{ task.name }}</h5>
+                                <p class="card-text">{{ task.description }}</p>
+                                {% comment %} <a href="{% url 'task_details' task.pk %}" class="btn btn-primary float-end">See details</a> {% endcomment %}
+                            </div>
+
+                        <div class="card-footer text-muted">{{ task.priority }} Priority</div>
+                    </div>
+
+                {% endfor %}
+                
+            </div>            
+        </div> -->
+
     </div>            
 
-{% endblock content%}
+{% endblock content %}
