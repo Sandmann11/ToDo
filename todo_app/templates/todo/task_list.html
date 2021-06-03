@@ -15,20 +15,18 @@
                         <th>Due</th>                        
                     </tr>
                 </thead>
-
+                <tbody>
                 {% for task in object_list %}
-
-                    <tbody>                    
-                        <tr>
-                            <td><a class="fw-bold text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>
-                            <td>{{ task.category }}</td>
-                            <td>{{ task.priority }}</td>
-                            <td>{{ task.date_due }}</td>
-                        </tr>
-                    </tbody>
-
+                                        
+                    <tr>
+                        <td><a class="fw-bold text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>
+                        <td>{{ task.category }}</td>
+                        <td>{{ task.priority }}</td>
+                        <td>{{ task.date_due }}</td>
+                    </tr>
+                    
                 {% endfor %}
-
+                </tbody>
             </table>
         </div>
 
