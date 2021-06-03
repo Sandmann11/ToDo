@@ -1,5 +1,6 @@
+from todo_app.forms import TaskForm
 from django.shortcuts import render
-from .models import Task
+from .models import Task, Category
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 import requests
 
@@ -21,3 +22,8 @@ class TaskDetails(DetailView):
     model = Task
     template_name = 'todo/task_details.html'
 
+
+class TaskAdd(CreateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'todo/task_add.html'
