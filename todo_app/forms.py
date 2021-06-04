@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task, Category
+from .models import Task
 
 # choices = Category.objects.all().values_list('name', 'name')
 

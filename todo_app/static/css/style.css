@@ -2,3 +2,23 @@ body {
     /* background-color:#ffffff; */
     font-family: 'Segoe UI';
 }
+
+.fw-bold.lowest {
+    color:darkgreen;
+}
+
+.fw-bold.low {
+    color:limegreen;
+}
+
+.fw-bold.normal {
+    color:darkblue;
+}
+
+.fw-bold.high {
+    color:chocolate;
+}
+
+.fw-bold.highest {
+    color:red;
+}

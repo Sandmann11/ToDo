@@ -10,8 +10,8 @@
                 <thead>
                     <tr class="table-secondary">
                         <th>Task</th>
-                        <th>Category</th>
                         <th>Priority</th>
+                        <th>Category</th>
                         <th>Due</th>                        
                     </tr>
                 </thead>
@@ -20,8 +20,18 @@
                                         
                     <tr>
                         <td><a class="fw-bold text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>
+                        {% if task.priority == 'Lowest' %}
+                            <td class="fw-bold lowest">{{ task.priority }}</td>
+                        {% elif task.priority == 'Low' %}
+                            <td class="fw-bold low">{{ task.priority }}</td>
+                        {% elif task.priority == 'Normal' %}
+                            <td class="fw-bold normal ">{{ task.priority }}</td>
+                        {% elif task.priority == 'High' %}
+                            <td class="fw-bold high ">{{ task.priority }}</td>
+                        {% elif task.priority == 'Highest' %}
+                            <td class="fw-bold highest ">{{ task.priority }}</td>                                                        
+                        {% endif %}
                         <td>{{ task.category }}</td>
-                        <td>{{ task.priority }}</td>
                         <td>{{ task.date_due }}</td>
                     </tr>
                     
