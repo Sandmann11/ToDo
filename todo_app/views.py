@@ -2,7 +2,7 @@ from todo_app.forms import TaskForm, CategoryForm
 from django.shortcuts import render
 from .models import Category, Task
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-import requests
+# import requests
 
 
 def admin(request):
@@ -34,6 +34,7 @@ class CategoryAdd(CreateView):
     form_class = CategoryForm
     template_name = 'todo/category_add.html'
     # fields = '__all__'
+
 
 class CategoryList(ListView):
     model = Category

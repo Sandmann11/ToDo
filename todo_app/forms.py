@@ -2,6 +2,7 @@ from django import forms
 from django.forms import widgets
 from .models import Task, Category
 
+
 choices = Category.objects.all().values_list('name', 'name')
 
 
@@ -19,6 +20,7 @@ class TaskForm(forms.ModelForm):
             'date_due': forms.TextInput(attrs={'class': 'form-control'}),
             'reminder': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
 
 class CategoryForm(forms.ModelForm):
     class Meta:
