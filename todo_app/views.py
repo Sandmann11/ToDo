@@ -34,3 +34,7 @@ class CategoryAdd(CreateView):
     form_class = CategoryForm
     template_name = 'todo/category_add.html'
     # fields = '__all__'
+
+class CategoryList(ListView):
+    model = Category
+    template_name = 'todo/category_list.html'

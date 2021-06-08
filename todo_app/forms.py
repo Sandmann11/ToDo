@@ -4,7 +4,6 @@ from .models import Task, Category
 
 choices = Category.objects.all().values_list('name', 'name')
 
-# print(choices)
 
 class TaskForm(forms.ModelForm):
     class Meta:

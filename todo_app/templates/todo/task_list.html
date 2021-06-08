@@ -49,30 +49,8 @@
 
                 </tbody>
             </table>
+            
         </div>
-
-        <!-- <div class="row">            
-            <div class="col mt-5">
-
-                {% for task in object_list %}
-
-                    <div class="card w-75 mt-2 mb-4 mx-auto">
-                        <div class="card-header">{{ task.category }} <span class="float-end">{{ task.date_due }}</span></div>
-                            
-                            <div class="card-body">
-                                <h5 class="card-title">{{ task.name }}</h5>
-                                <p class="card-text">{{ task.description }}</p>
-                                {% comment %} <a href="{% url 'task_details' task.pk %}" class="btn btn-primary float-end">See details</a> {% endcomment %}
-                            </div>
-
-                        <div class="card-footer text-muted">{{ task.priority }} Priority</div>
-                    </div>
-
-                {% endfor %}
-                
-            </div>            
-        </div> -->
-
     </div>            
 
 {% endblock content %}

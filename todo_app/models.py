@@ -9,7 +9,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('task_list')
+        return reverse('category_list')
 
 
 class Task(models.Model):
