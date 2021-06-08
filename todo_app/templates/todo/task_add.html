@@ -1,18 +1,21 @@
 {% extends 'todo/main.html' %}
 
+{% block title %}Add a New Task{% endblock %}
+
 {% block content%}
 
 
-<div class="container w-75 my-1">
-    <h2>Add New Task</h2>
+<div class="container w-75 my-4">
+    <h4>Add a New Task</h4>
     <br>
-    <div class="form-group w-75">
+
+    <div class="form-group w-50">
         <form method="POST" enctype="multipart/form-data">                
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-primary px-5">Add</button>                    
+            <button class="btn btn-primary px-5 my-3">Add</button>                    
         </form>
-    </div>        
+    </div>       
 </div>
 
 
