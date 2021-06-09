@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import widgets
+from django.forms import ModelForm
 from .models import Task, Category
 
 
@@ -17,7 +17,7 @@ class TaskForm(forms.ModelForm):
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'details': forms.Textarea(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=choices, attrs={'class': 'form-control'}),
-            'priority': forms.TextInput(attrs={'class': 'form-control'}),
+            'priority': forms.Select(attrs={'class': 'form-control'}),
             'date_due': forms.TextInput(attrs={'class': 'form-control'}),
             'reminder': forms.TextInput(attrs={'class': 'form-control'}),
         }

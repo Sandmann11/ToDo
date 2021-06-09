@@ -4,22 +4,22 @@
 
 {% block content %}
 
-    {% comment %} {% if user.is_authenticated %} {% endcomment %}
+    {% if user.is_authenticated %}
 
-<div class="container w-75 my-4">
-    <h4>Add a New Category</h4>
-    <br>
+        <div class="container w-75 my-4">
+            <h4>Add a New Category</h4>
+            <br>
 
-    <div class="form-group w-50">
-        <form method="POST">                
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-primary px-5 my-3">Add</button>                    
-        </form>
-    </div>        
-</div>
+            <div class="form-group w-50">
+                <form method="POST">                
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-primary px-5 my-3">Add</button>                    
+                </form>
+            </div>        
+        </div>
 
-    {% comment %} {% else %}
+    {% else %}
 
         <div class="container w-75 my-5">
             <h2>You are not logged in!</h2>
@@ -27,6 +27,6 @@
             <a href="{% url 'login' %}">Login</a>                                
         </div>
         
-    {% endif %} {% endcomment %}
+    {% endif %}
     
 {% endblock content %} 
