@@ -9,9 +9,10 @@ choices = Category.objects.all().values_list('name', 'name')
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['name', 'description', 'details', 'category', 'priority', 'date_due', 'reminder']
+        fields = ['author', 'name', 'description', 'details', 'category', 'priority', 'date_due', 'reminder']
 
         widgets = {
+            'author': forms.Select(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'details': forms.Textarea(attrs={'class': 'form-control'}),

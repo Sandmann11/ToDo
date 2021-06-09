@@ -1,4 +1,4 @@
-from todo_app.forms import TaskForm, CategoryForm
+from .forms import TaskForm, CategoryForm
 from django.shortcuts import render
 from .models import Category, Task
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
