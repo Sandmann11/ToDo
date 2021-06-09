@@ -1,7 +1,16 @@
 {% block content %}
 
-    <div class="container">
-    7777
+    <div class="container my-5 w-50">
+
+        <div class="card text-center">
+            <div class="card-header">Welcome to the Task Manager</div>
+            <div class="card-body">
+                <h5 class="card-title">Hello!</h5>
+                <p class="card-text">This is a temporary home page. Click the button below or use the top navigation menu to access the task list.</p>
+                <a href="{% url 'task_list' %}" class="btn btn-primary">Task List</a>
+            </div>
+        </div>
+
     </div>
 
 {% endblock %}
