@@ -28,8 +28,8 @@ class Task(models.Model):
     category = models.CharField(max_length=50, null=True, blank=True)
     priority = models.CharField(max_length=255, null=True, choices=PRIORITY)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    date_due = models.DateField(null=True)
-    reminder = models.DateTimeField(null=True)
+    date_due = models.DateField(null=True, blank=True)
+    # reminder = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name
