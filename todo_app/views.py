@@ -1,3 +1,4 @@
+from django.urls.base import reverse_lazy
 from .forms import TaskForm, CategoryForm
 from django.shortcuts import render
 from .models import Category, Task
@@ -29,11 +30,22 @@ class TaskAdd(CreateView):
     template_name = 'todo/task_add.html'
 
 
+class TaskUpdate(UpdateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'todo/task_update.html' 
+
+
+class TaskDelete(DeleteView):
+    model = Task
+    template_name = 'todo/task_delete.html'
+    success_url = reverse_lazy('task_list')
+
+
 class CategoryAdd(CreateView):
     model = Category
     form_class = CategoryForm
     template_name = 'todo/category_add.html'
-    # fields = '__all__'
 
 
 class CategoryList(ListView):

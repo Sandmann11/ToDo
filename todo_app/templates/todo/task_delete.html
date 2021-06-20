@@ -1,0 +1,32 @@
+{% extends 'todo/main.html' %}
+{% block title %}Delete Task{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    
+        <div class="container w-75">
+            <h2>Delete Task...</h2>
+            <br>
+            <h5>You are about to permanently delete {{ task.name }}.<br/> Are you sure?</h5>
+            <br>
+
+            <div class="form-group w-75">
+                <form method="POST">                
+                    {% csrf_token %}
+                    <button class="btn btn-danger px-5">Yes, Delete It!</button>                    
+                </form>
+            </div>        
+        </div>
+
+    {% else %}
+
+        <div class="container w-75 my-5">
+            <h2>You are not logged in!</h2>
+            <br>
+            <a href="{% url 'login' %}">Login</a>                                
+        </div>
+
+    {% endif %}
+    
+{% endblock content %} 

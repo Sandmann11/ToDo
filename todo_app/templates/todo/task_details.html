@@ -4,6 +4,10 @@
 
 
 <div class="container mx-auto mt-5">
+    {% if user.is_authenticated %}
+    <a href="{% url 'task_update' task.pk %}">Edit</a> | <a href="{% url 'task_delete' task.pk %}">Delete</a>
+    {% endif %}
+
     <h3>{{ task.name }}</h3>
     <hr>
     <h4>Category: {{ task.category }} | Priority: {{ task.priority}} | Added by: {{ task.author }}</h4>
