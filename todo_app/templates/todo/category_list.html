@@ -16,10 +16,10 @@
 
             <tbody>
 
-            {% for cat in object_list %}
+            {% for category in object_list %}
                                     
                 <tr>
-                    <td>{{ cat.name }}</td>
+                    <td><a href="{% url 'category_details' category.pk %}">{{ category.name }}</a></td>
                 </tr>
                 
             {% endfor %}

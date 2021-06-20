@@ -51,3 +51,14 @@ class CategoryAdd(CreateView):
 class CategoryList(ListView):
     model = Category
     template_name = 'todo/category_list.html'
+
+
+class CategoryDetails(DetailView):
+    model = Category
+    template_name = 'todo/category_details.html'
+
+
+class CategoryDelete(DeleteView):
+    model = Category
+    template_name = 'todo/category_delete.html'
+    success_url = reverse_lazy('category_list')

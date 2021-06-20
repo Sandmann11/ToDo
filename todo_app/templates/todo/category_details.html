@@ -1,0 +1,16 @@
+{% extends 'todo/main.html' %}
+
+{% block content%}
+
+
+<div class="container mx-auto mt-5">
+    {% if user.is_authenticated %}
+        <a href="{% url 'category_delete' category.pk %}">Delete</a>
+    {% endif %}
+
+    <h3>{{ category.name }}</h3>
+
+</div>
+
+
+{% endblock content %}
