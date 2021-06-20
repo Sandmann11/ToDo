@@ -1,1 +1,1 @@
-A simple task management app. Still under development.
+A simple task management app. Still under development (learning).
