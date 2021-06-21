@@ -1,9 +1,8 @@
-from django.urls.base import reverse_lazy
-from .forms import TaskForm, CategoryForm
 from django.shortcuts import render
 from .models import Category, Task
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-# import requests
+from .forms import TaskForm, CategoryForm
+from django.urls.base import reverse_lazy
 
 
 def admin(request):
@@ -42,12 +41,6 @@ class TaskDelete(DeleteView):
     success_url = reverse_lazy('task_list')
 
 
-class CategoryAdd(CreateView):
-    model = Category
-    form_class = CategoryForm
-    template_name = 'todo/category_add.html'
-
-
 class CategoryList(ListView):
     model = Category
     template_name = 'todo/category_list.html'
@@ -56,6 +49,12 @@ class CategoryList(ListView):
 class CategoryDetails(DetailView):
     model = Category
     template_name = 'todo/category_details.html'
+
+
+class CategoryAdd(CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'todo/category_add.html'
 
 
 class CategoryDelete(DeleteView):

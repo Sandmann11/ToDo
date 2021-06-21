@@ -5,9 +5,21 @@
     <div class="card text-center">
         <div class="card-header">Welcome to the Task Manager</div>
         <div class="card-body">
-            <h5 class="card-title">Hello!</h5>
-            <p class="card-text">This is a temporary home page. Click the button below or use the top navigation menu to access the task list.</p>
-            <a href="{% url 'task_list' %}" class="btn btn-primary">Task List</a>
+            
+            {% if user.is_authenticated %}
+
+                <h4 class="card-title mt-2 mb-4">Hello, {{ user.username }}!</h4>
+                <p class="card-text">Click the button below or use the top navigation menu to access your Task List.</p>
+                <a href="{% url 'task_list' %}" class="btn btn-primary my-2">Task List</a>
+
+            {% else %}
+
+                <h4 class="card-title mt-2 mb-4">You are not logged in!</h4>
+                <p class="card-text">If you're already a member, click the Login button below. Otherwise use the Register button to create a new user.</p>
+                <a href="{% url 'login' %}" class="btn btn-primary my-2">Login</a> <a href="{% url 'register' %}" class="btn btn-success my-2">Register</a> 
+
+            {% endif %}
+
         </div>
     </div>
 
