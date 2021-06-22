@@ -12,7 +12,8 @@
                     <th>Task</th>
                     <th>Priority</th>
                     <th>Category</th>
-                    <th>Due</th>                        
+                    <th>Due</th>
+                    <th>Owner</th>                                            
                 </tr>
 
             </thead>
@@ -43,6 +44,7 @@
 
                     <td>{{ task.category }}</td>
                     <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
                 </tr>
                 
             {% endfor %}
