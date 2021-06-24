@@ -1,5 +1,7 @@
 {% extends 'todo/main.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -8,12 +10,12 @@
         <table class="table table-hover">
             <thead>
 
-                <tr class="table-secondary">
-                    <th>Task</th>
-                    <th>Priority</th>
-                    <th>Category</th>
-                    <th>Due</th>
-                    <th>Owner</th>                                            
+                <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Owner</th>                                            
                 </tr>
 
             </thead>
@@ -21,6 +23,57 @@
             <tbody>
 
             {% for task in object_list %}
+
+            {% if task.priority == 'Lowest' %}
+                <tr class="table-secondary border-top-0 border-bottom-0">
+                    <td><a class="text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>                        
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.category }}</td>
+                    <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
+                </tr>
+
+            {% elif task.priority == 'Low' %}
+                <tr class="table-success border-top-0 border-bottom-0">
+                    <td><a class="text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>                         
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.category }}</td>
+                    <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
+                </tr>                            
+
+            {% elif task.priority == 'Normal' %}
+                <tr class="table-primary border-top-0 border-bottom-0">
+                    <td><a class="text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>                         
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.category }}</td>
+                    <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
+                </tr>                        
+
+            {% elif task.priority == 'High' %}
+                <tr class="table-warning border-top-0 border-bottom-0">
+                    <td><a class="text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>                         
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.category }}</td>
+                    <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
+                </tr>                        
+
+            {% elif task.priority == 'Highest' %}
+                <tr class="table-danger border-top-0 border-bottom-0">
+                    <td><a class="text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>                         
+                    <td>{{ task.priority }}</td>
+                    <td>{{ task.category }}</td>
+                    <td>{{ task.date_due }}</td>
+                    <td>{{ task.author }}</td>
+                </tr>                        
+
+            {% endif %}
+
+            {% endfor %}
+
+{% comment %}             {% for task in object_list %}
                                     
                 <tr>
                     <td><a class="fw-bold text-body text-decoration-none" href="{% url 'task_details' task.pk %}">{{ task.name }}</a></td>
@@ -47,11 +100,10 @@
                     <td>{{ task.author }}</td>
                 </tr>
                 
-            {% endfor %}
+            {% endfor %} {% endcomment %}
 
             </tbody>
-        </table>
-        
+        </table>    
     </div>
 </div>            
 
