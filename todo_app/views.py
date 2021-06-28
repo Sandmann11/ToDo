@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Category, Task
+from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import TaskForm, CategoryForm
 from django.urls.base import reverse_lazy
@@ -61,3 +62,19 @@ class CategoryDelete(DeleteView):
     model = Category
     template_name = 'todo/category_delete.html'
     success_url = reverse_lazy('category_list')
+
+
+class UserList(ListView):
+    model = User
+    template_name = 'todo/user_list.html'
+
+
+class UserDetails(DetailView):
+    model = User
+    template_name = 'todo/user_details.html'    
+
+
+class UserDelete(DeleteView):
+    model = User
+    template_name = 'todo/user_delete.html'
+    success_url = reverse_lazy('user_list')
