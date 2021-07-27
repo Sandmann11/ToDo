@@ -26,7 +26,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=100, null=True, blank=True)
     details = models.TextField(null=True, blank=True)
-    category = models.CharField(max_length=50, null=True, blank=True)
+    category = models.CharField(max_length=50, null=True)
     priority = models.CharField(max_length=255, null=True, choices=PRIORITY)
     date_created = models.DateTimeField(default=timezone.now)
     date_due = models.DateField(null=True, blank=True)
